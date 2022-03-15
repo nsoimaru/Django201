@@ -2,11 +2,11 @@
 {% load thumbnail %}
 
 {% block title %}
-  Home Page
+  {{post.text}} by {{post.author.username}} 
 {% endblock title %}
 
 {% block body %}
-  {% for post in posts %}
+  
     <!-- component from https://tailwindcomponents.com/component/post-artical -->
     <div class="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md", style="width: 50rem;">
         <div class="flex justify-between items-center">
@@ -17,8 +17,8 @@
             <!-- <a class="text-2xl text-gray-700 font-bold hover:text-gray-600" href="#">Accessibility tools for designers and developers</a> -->
             <p class="mt-2 text-gray-600">{{post.text}}</p>
         </div>
-        <div class="flex justify-between items-center mt-4">            
-            <a class="text-blue-600 hover:underline" href="{% url 'feed:detail' post.id %}">Read more</a>
+        <div class="flex justify-between items-center mt-4"> 
+            <a class="text-blue-600 hover:underline" href="{% url 'feed:detail' post.id %}">Read more</a>            
             <div>
                 <a class="flex items-center" href="#">
                     {% thumbnail post.author.profile.image "373x373" crop="center" as im %}                       
@@ -30,14 +30,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-  {% endfor %}
-  {% endblock body %}
-  <!-- {{post.text}} written on {{post.date}}
-  <hr> -->
+{% endblock body %}
