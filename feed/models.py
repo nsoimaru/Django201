@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Post(models.Model):
-    text = models.TextField(max_length=240)
+    text = models.CharField(max_length=240)
     date = models.DateField(auto_now=True)
     author = models.ForeignKey(
         User,
