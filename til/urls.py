@@ -25,3 +25,5 @@ urlpatterns = [
     path('', include(feed_urls, namespace='feed')),
     url('', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
